@@ -2,30 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-
-const projects = [
-  {
-    title: "Projet E-commerce",
-    description: "Plateforme de vente en ligne moderne avec panier et paiement sécurisé",
-    tags: ["React", "Node.js", "Stripe"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Application Mobile",
-    description: "Application de gestion de tâches avec synchronisation cloud",
-    tags: ["React Native", "Firebase", "TypeScript"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Dashboard Analytics",
-    description: "Tableau de bord interactif pour visualisation de données en temps réel",
-    tags: ["React", "D3.js", "TailwindCSS"],
-    link: "#",
-    github: "#",
-  },
-];
+import { cv } from "@/data/cv";
 
 const Projects = () => {
   return (
@@ -42,8 +19,8 @@ const Projects = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
+          <div id="projects" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            {cv.projects.map((project, index) => (
               <Card 
                 key={index}
                 className="group hover:shadow-[var(--shadow-elegant)] transition-all duration-300 hover:-translate-y-2 border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden"
@@ -68,14 +45,22 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="flex gap-2">
-                    <Button variant="outline" size="sm" className="flex-1 gap-2">
-                      <ExternalLink className="w-4 h-4" />
-                      Voir
-                    </Button>
-                    <Button variant="outline" size="sm" className="flex-1 gap-2">
-                      <Github className="w-4 h-4" />
-                      Code
-                    </Button>
+                    {project.link ? (
+                      <a className="flex-1" href={project.link} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="sm" className="w-full gap-2">
+                          <ExternalLink className="w-4 h-4" />
+                          Voir
+                        </Button>
+                      </a>
+                    ) : null}
+                    {project.github ? (
+                      <a className="flex-1" href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="sm" className="w-full gap-2">
+                          <Github className="w-4 h-4" />
+                          Code
+                        </Button>
+                      </a>
+                    ) : null}
                   </div>
                 </CardContent>
               </Card>

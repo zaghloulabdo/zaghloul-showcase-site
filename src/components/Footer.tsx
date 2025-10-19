@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import { cv } from "@/data/cv";
 
 const Footer = () => {
   return (
@@ -7,15 +8,15 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold mb-2">Abdessamad Zaghloul</h3>
+              <h3 className="text-xl font-bold mb-2">{cv.personal.name}</h3>
               <p className="text-muted-foreground">
-                Développeur web passionné
+                {cv.personal.title}
               </p>
             </div>
 
             <div className="flex gap-4">
               <a 
-                href="https://github.com" 
+                href={cv.socials.github || "https://github.com"} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -24,7 +25,7 @@ const Footer = () => {
                 <Github className="w-5 h-5" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href={cv.socials.linkedin || "https://linkedin.com"} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -33,7 +34,7 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a 
-                href="mailto:contact@abdessamadzaghloul.site"
+                href={`mailto:${cv.contact.email || cv.socials.email || ""}`}
                 className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="Email"
               >
@@ -43,7 +44,7 @@ const Footer = () => {
           </div>
 
           <div className="mt-8 pt-8 border-t border-border/50 text-center text-muted-foreground text-sm">
-            <p>&copy; {new Date().getFullYear()} Abdessamad Zaghloul. Tous droits réservés.</p>
+            <p>&copy; {new Date().getFullYear()} {cv.personal.name}. Tous droits réservés.</p>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
+import { cv } from "@/data/cv";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -12,7 +13,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-24 bg-secondary/30">
+    <section id="contact" className="py-24 bg-secondary/30">
       <div className="container px-4 mx-auto">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
@@ -79,10 +80,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Email</h3>
                     <a 
-                      href="mailto:contact@abdessamadzaghloul.site"
+                      href={`mailto:${cv.contact.email || cv.socials.email || ""}`}
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      contact@abdessamadzaghloul.site
+                      {cv.contact.email || cv.socials.email}
                     </a>
                   </div>
                 </CardContent>
@@ -96,7 +97,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Téléphone</h3>
                     <p className="text-muted-foreground">
-                      +212 XXX XXX XXX
+                      {cv.contact.phone || "+212 XXX XXX XXX"}
                     </p>
                   </div>
                 </CardContent>
@@ -110,7 +111,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Localisation</h3>
                     <p className="text-muted-foreground">
-                      Maroc
+                      {cv.contact.location || ""}
                     </p>
                   </div>
                 </CardContent>
