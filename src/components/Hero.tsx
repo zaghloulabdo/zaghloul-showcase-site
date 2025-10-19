@@ -11,9 +11,9 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <SplineScene 
           scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-          className="w-full h-full opacity-30"
+          className="w-full h-full opacity-70"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/60 to-background"></div>
       </div>
 
       {/* Spotlight Effect */}
