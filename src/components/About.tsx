@@ -4,7 +4,7 @@ import { cv } from "@/data/cv";
 
 const About = () => {
   return (
-    <section className="py-24 bg-secondary/30">
+    <section id="about" className="py-24 bg-secondary/30">
       <div className="container px-4 mx-auto">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">

@@ -5,11 +5,37 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { cv } from "@/data/cv";
+import { useState } from "react";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulation d'envoi (remplacer par votre service d'email)
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Ici vous pouvez intégrer EmailJS, Formspree, ou votre API
+    // Exemple avec EmailJS:
+    // emailjs.send('service_id', 'template_id', formData, 'public_key')
+
     toast.success("Message envoyé avec succès! Je vous répondrai bientôt.");
+    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(false);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
   };
 
   return (
@@ -38,7 +64,10 @@ const Contact = () => {
                       <Input 
                         id="name"
                         placeholder="Votre nom" 
-                        required 
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -49,7 +78,10 @@ const Contact = () => {
                         id="email"
                         type="email" 
                         placeholder="votre@email.com" 
-                        required 
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -60,11 +92,18 @@ const Contact = () => {
                         id="message"
                         placeholder="Votre message..." 
                         rows={5}
-                        required 
+                        required
+                        value={formData.message}
+                        onChange={handleChange}
+                        disabled={isSubmitting}
                       />
                     </div>
-                    <Button type="submit" className="w-full shadow-[var(--shadow-elegant)]">
-                      Envoyer le message
+                    <Button 
+                      type="submit" 
+                      className="w-full shadow-[var(--shadow-elegant)]"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                     </Button>
                   </form>
                 </CardContent>

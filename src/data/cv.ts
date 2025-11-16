@@ -30,6 +30,15 @@ export type CvData = {
     phone?: string;
     location?: string;
   };
+  certifications: Array<{
+    title: string;
+    issuer: string;
+    date?: string;
+    credentialId?: string;
+    credentialUrl?: string;
+    description?: string;
+    image?: string;
+  }>;
 };
 
 export const cv: CvData = {
@@ -90,6 +99,61 @@ export const cv: CvData = {
     phone: "+212 663023736",
     location: "Maroc",
   },
+  certifications: [
+    {
+      title: "Introduction to Java and Object-Oriented Programming",
+      issuer: "University of Pennsylvania via Coursera",
+      date: "Janvier 2025",
+      credentialId: "PE7GOZCP8L65",
+      credentialUrl: "https://coursera.org/verify/PE7GOZCP8L65",
+      description: "Maîtrise de la programmation orientée objet avec Java, autorisé par University of Pennsylvania",
+      image: "/certifications/java-oop-certificate.jpg.png",
+    },
+    {
+      title: "React Basics",
+      issuer: "Meta via Coursera",
+      date: "Janvier 2025",
+      credentialId: "U4DSWGQFUWC7",
+      credentialUrl: "https://coursera.org/verify/U4DSWGQFUWC7",
+      description: "Fondamentaux du développement d'applications web avec React, autorisé par Meta",
+      image: "/certifications/react-basics-certificate.jpg.png",
+    },
+    {
+      title: "Introduction to Containers w/ Docker, Kubernetes & OpenShift",
+      issuer: "IBM via Coursera",
+      date: "Mai 2025",
+      credentialId: "HNAOCU25VRFF",
+      credentialUrl: "https://coursera.org/verify/HNAOCU25VRFF",
+      description: "Maîtrise de la conteneurisation et de l'orchestration avec Docker, Kubernetes et OpenShift, autorisé par IBM",
+      image: "/certifications/docker-kubernetes-certificate.jpg.png",
+    },
+    {
+      title: "Virtual Networks in Azure",
+      issuer: "Whizlabs via Coursera",
+      date: "Mai 2025",
+      credentialId: "GK2H1U5RNDZB",
+      credentialUrl: "https://coursera.org/verify/GK2H1U5RNDZB",
+      description: "Création et gestion de réseaux virtuels sur la plateforme Microsoft Azure, autorisé par Whizlabs",
+      image: "/certifications/azure-networks-certificate.jpg.png",
+    },
+    {
+      title: "The Unix Workbench",
+      issuer: "Johns Hopkins University via Coursera",
+      date: "Mai 2024",
+      credentialId: "XZ69AWAGEYAQ",
+      credentialUrl: "https://coursera.org/verify/XZ69AWAGEYAQ",
+      description: "Maîtrise de l'environnement Unix et des outils de ligne de commande, autorisé par Johns Hopkins University",
+      image: "/certifications/unix-workbench-certificate.jpg.png",
+    },
+    {
+      title: "Oracle Cloud Infrastructure 2025 Certified DevOps Professional",
+      issuer: "Oracle University",
+      date: "Octobre 2025",
+      credentialId: "Oracle Certified Professional",
+      description: "Certification professionnelle Oracle Cloud Infrastructure DevOps, valide jusqu'en octobre 2027",
+      image: "/certifications/oracle-devops-certificate.jpg.png.jpeg",
+    },
+  ],
 };
 
 

@@ -2,6 +2,10 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { cv } from "@/data/cv";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="py-12 border-t border-border/50 bg-secondary/20">
       <div className="container px-4 mx-auto">
@@ -45,6 +49,9 @@ const Footer = () => {
 
           <div className="mt-8 pt-8 border-t border-border/50 text-center text-muted-foreground text-sm">
             <p>&copy; {new Date().getFullYear()} {cv.personal.name}. Tous droits réservés.</p>
+            <p className="mt-2">
+              Développé avec <span className="text-primary">❤️</span> en utilisant React, TypeScript et Tailwind CSS
+            </p>
           </div>
         </div>
       </div>

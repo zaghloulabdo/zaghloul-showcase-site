@@ -6,7 +6,7 @@ import { cv } from "@/data/cv";
 
 const Projects = () => {
   return (
-    <section className="py-24">
+    <section id="projects" className="py-24">
       <div className="container px-4 mx-auto">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
@@ -19,7 +19,7 @@ const Projects = () => {
             </p>
           </div>
 
-          <div id="projects" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
             {cv.projects.map((project, index) => (
               <Card 
                 key={index}
